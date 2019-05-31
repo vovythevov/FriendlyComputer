@@ -21,6 +21,7 @@ set(${kit}_QT_MODULES
   QuickControls2
   Svg
   Xml
+  Widgets
   )
 find_package(Qt5 REQUIRED COMPONENTS ${${kit}_QT_MODULES})
 
@@ -32,7 +33,7 @@ set(SRC_FILES
   )
 
 set(QRC_SRCS
-  window.qrc
+  all.qrc
   )
 
 qt5_add_resources(QRC_BUILT_SRCS ${QRC_SRCS})
@@ -72,12 +73,14 @@ install(FILES
 
 set(QT_DIR "${Qt5_DIR}/../../..")
 
-# We also need Qt5QuickTemplates2.dll
+# Other Qt dlls
 install(FILES
   ${QT_DIR}/bin/Qt5QuickTemplates2.dll
   DESTINATION ${${kit}_INSTALL_BIN_DIR} COMPONENT Runtime
-  CONFIGURATIONS RELEASE RELWITHDEBINFO)
+  CONFIGURATIONS RELEASE RELWITHDEBINFO
+  )
 
+# Qt Quick
 install(DIRECTORY
   ${QT_DIR}/qml/QtQuick
   DESTINATION ${${kit}_INSTALL_BIN_DIR} COMPONENT Runtime
@@ -86,3 +89,13 @@ install(DIRECTORY
   ${QT_DIR}/qml/QtQuick.2
   DESTINATION ${${kit}_INSTALL_BIN_DIR} COMPONENT Runtime
   )
+
+# Qt plugins
+install(FILES
+  ${QT_DIR}/plugins/platforms/qwindows.dll
+  DESTINATION ${${kit}_INSTALL_BIN_DIR}/platforms COMPONENT Runtime
+  )
+#install(DIRECTORY
+#  ${QT_DIR}/plugins/imageformats
+#  DESTINATION ${${kit}_INSTALL_BIN_DIR}/plugins COMPONENT Runtime
+#  )

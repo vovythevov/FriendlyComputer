@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
     QQmlEngine engine;
     QQmlComponent component(&engine);
     QQuickWindow::setDefaultAlphaBuffer(true);
-    component.loadUrl(QUrl("qrc:///window.qml"));
+    component.loadUrl(QUrl("qrc:///Main.qml"));
     if ( component.isReady() )
         component.create();
     else
