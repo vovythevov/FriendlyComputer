@@ -28,8 +28,5 @@ Window {
             splash.timeout()
         }
     }
-    Component.onCompleted: {
-        visible = true
-        console.log(splash.width)
-    }
+    Component.onCompleted: visible = true
 }
