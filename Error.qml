@@ -10,6 +10,8 @@ Item {
 
     property string instructionText
 
+    anchors.fill: parent
+
     Image {
         id: image
         width: 240

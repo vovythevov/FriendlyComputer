@@ -79,7 +79,6 @@ Item {
       id: loadingTextTimer
       interval: 4000
       onTriggered: {
-          console.log("timer triggered")
           currentQuote = currentQuote + 1
           if (currentQuote >= maxNumberOfQuotes) {
               currentQuote = 0

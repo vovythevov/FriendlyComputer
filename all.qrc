@@ -4,6 +4,7 @@
     <file>Boot.qml</file>
     <file>Error.qml</file>
     <file>Main.qml</file>
+    <file>MainWindow.qml</file>
     <file>Setup.qml</file>
     <file>Splash.qml</file>
     <!-- Icons -->

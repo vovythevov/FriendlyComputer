@@ -85,11 +85,9 @@ Item {
 
         onAccepted: {
             if (input.value == expectedValue) {
-                console.log("Setup finish")
                 setup.finished()
             }
             else {
-                console.log("Setup error")
                 setup.error()
             }
         }
