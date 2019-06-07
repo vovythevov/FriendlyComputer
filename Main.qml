@@ -20,7 +20,23 @@ QtObject {
         StackView {
             id: stack
             anchors.fill: parent
-            initialItem: Qt.resolvedUrl("Boot.qml")
+            initialItem: boot
+
+            Component {
+                id: boot
+                Boot {
+                    onFinished: stack.push(setup)
+                }
+            }
+
+            Component {
+                id: setup
+                Rectangle {
+                    color: "red"
+                }
+            }
         }
     }
+
+
 }

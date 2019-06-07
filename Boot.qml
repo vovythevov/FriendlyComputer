@@ -4,7 +4,29 @@ import QtQuick.Window 2.3
 
 Item {
   id: boot
-  anchors.fill: parent
+
+  signal finished()
+  property int currentQuote: 0
+  property int maxNumberOfQuotes: 2
+  property var quote: [
+    "Reticulating splines",
+    "Setting time and space variables",
+    "Upgrading framework",
+    "Checking the gravitational constant in your locale",
+    "Calibrating satellites into position",
+    "Embiggening Prototypes",
+    "Creating time-loop inversion field",
+    "Computing chance of success",
+    "Adjusting flux capacitor.",
+    "Transcoding firewall",
+    "Inversing matrices",
+    "Translocating datasets",
+    "Interfacing hardware",
+    "Opening ports",
+    "Enhancing cross-platform support",
+    "Receiving packets",
+    "Decompressing resources",
+  ]
 
   Image {
       id: gear
@@ -29,15 +51,14 @@ Item {
 
   Text {
       id: loadingText
-      x: 356
-      text: qsTr("Text To Fill")
+      text: quote[currentQuote]
       horizontalAlignment: Text.AlignHCenter
       anchors.bottom: progressBar.top
       anchors.bottomMargin: 50
       anchors.top: gear.bottom
       anchors.topMargin: 50
       anchors.horizontalCenter: parent.horizontalCenter
-      font.pixelSize: 22
+      font.pixelSize: 40
   }
 
   ProgressBar {
@@ -50,5 +71,24 @@ Item {
       anchors.rightMargin: 50
       anchors.left: parent.left
       anchors.leftMargin: 50
+  }
+
+  Timer {
+      id: loadingTextTimer
+      interval: 4000
+      onTriggered: {
+          currentQuote = currentQuote + 1
+          if (currentQuote >= maxNumberOfQuotes) {
+              currentQuote = 0
+              boot.finished()
+          }
+          loadingTextTimer.interval = 10000 * Math.random()
+          loadingTextTimer.start()
+      }
+  }
+
+  Component.onCompleted: {
+      loadingTextTimer.start()
+      console.log("\\todo: Change maxNumberOfQuotes")
   }
 }
