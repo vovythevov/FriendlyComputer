@@ -6,6 +6,8 @@ Item {
   id: boot
 
   signal finished()
+
+
   property int currentQuote: 0
   property int maxNumberOfQuotes: 2
   property var quote: [
@@ -77,13 +79,16 @@ Item {
       id: loadingTextTimer
       interval: 4000
       onTriggered: {
+          console.log("timer triggered")
           currentQuote = currentQuote + 1
           if (currentQuote >= maxNumberOfQuotes) {
               currentQuote = 0
               boot.finished()
           }
-          loadingTextTimer.interval = 10000 * Math.random()
-          loadingTextTimer.start()
+          else {
+            loadingTextTimer.interval = 10000 * Math.random()
+            loadingTextTimer.start()
+          }
       }
   }
 

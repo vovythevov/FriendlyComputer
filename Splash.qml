@@ -15,6 +15,7 @@ Window {
 
     Image {
         id: splashImage
+        anchors.topMargin: 20
         anchors.fill: parent
         fillMode: Image.PreserveAspectFit
         source: "Icons/Dharma_Initiative_logo.svg"

@@ -2,12 +2,17 @@
 <qresource>
     <!-- QML -->
     <file>Boot.qml</file>
+    <file>Error.qml</file>
     <file>Main.qml</file>
     <file>Setup.qml</file>
     <file>Splash.qml</file>
     <!-- Icons -->
-    <file>Icons/Gear.svg</file>
+    <file>Icons/Confirm.svg</file>
     <file>Icons/Dharma_Initiative_logo.svg</file>
+    <file>Icons/Gear.svg</file>
+    <file>Icons/Rock.svg</file>
+    <file>Icons/Skull.svg</file>
     <file>Icons/WaterDrop.svg</file>
+    <file>Icons/Wind.svg</file>
 </qresource>
 </RCC>
